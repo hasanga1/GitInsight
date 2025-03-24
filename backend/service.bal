@@ -3,13 +3,6 @@ import ballerina/time;
 
 configurable string GITHUB_TOKEN = ?;
 
-@http:ServiceConfig {
-    cors: {
-        allowOrigins: ["*"],
-        allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-    }
-}
-
 service http:Service / on new http:Listener(9094) {
     resource function get gitInsight/[string username]() returns GitSummery|error {
 
